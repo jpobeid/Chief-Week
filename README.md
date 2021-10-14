@@ -1,7 +1,7 @@
 # Chief-Week
 === Email
-- Email to Residents + Physics residents + Fellows + Jessica
-- CC: Med students + all lecture presenters
+- Email to: Residents + Fellows + Jessica
+- CC: All lecture presenters + med students (PRN) + physics residents (PRN: If physics lectures present)
 - Subject: {Monday's date} weekly schedule
 	- Do NOT label as secure!
 
