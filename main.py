@@ -142,4 +142,4 @@ for i in range(n_groups):
 document.add_paragraph('Templated with \u2665 by Python')
 
 #---Save document---
-document.save('weekly_doc.docx')
+document.save(globals.FILENAME_DOCX)

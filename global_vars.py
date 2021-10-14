@@ -1,3 +1,6 @@
+#---Names---
+FILENAME_DOCX = 'weekly_email.docx'
+
 #---Assets---
 PATH_ASSETS = r'assets/'
 
