@@ -5,11 +5,12 @@ from requests_html import HTMLSession
 
 def get_html_qg(url, headers):
     render_time = 4
+    timeout_time = 30
     with HTMLSession() as sesh:
         print('Accessing Qgenda...')
         response = sesh.get(url, headers=headers)
         print('Rendering schedule...')
-        response.html.render(sleep=render_time)
+        response.html.render(sleep=render_time, timeout=timeout_time)
         print('Finished rendering...')
         return response.html
 
