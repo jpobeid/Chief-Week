@@ -143,3 +143,6 @@ document.add_paragraph('Templated with \u2665 by Python')
 
 #---Save document---
 document.save(globals.FILENAME_DOCX)
+
+#---Manually close terminal---
+input('Press any key to exit...')
