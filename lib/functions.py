@@ -1,8 +1,9 @@
 import os
 import datetime
 import numpy as np
-import global_vars as globals
 from requests_html import HTMLSession
+
+from . import global_vars as globals
 
 def screen_assets():
     has_assets = os.path.exists(globals.PATH_ASSETS)
@@ -29,7 +30,7 @@ def get_seminar_text(url_seminar, date_seminar, time_seminar):
     print('Accessing medicine lectures page...')
     with HTMLSession() as sesh:
         response = sesh.get(url_seminar)
-    print('Finished accessing page...')
+    print('Finished accessing page!')
     month_formatted = date_seminar.strftime('%b')
     day_formatted = date_seminar.strftime('%d')
     if day_formatted.startswith('0'):

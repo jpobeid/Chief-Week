@@ -1,8 +1,9 @@
 import os
 import numpy as np
 import pandas as pd
-import functions as funcs
-import global_vars as globals
+
+from . import functions as funcs
+from . import global_vars as globals
 
 def fill_dates(df_i):
     e = df_i.loc[0, 'Date']

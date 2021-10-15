@@ -11,7 +11,7 @@ def get_html_qg(url, headers):
         response = sesh.get(url, headers=headers)
         print('Rendering schedule...')
         response.html.render(sleep=render_time, timeout=timeout_time)
-        print('Finished rendering...')
+        print('Finished rendering!')
         return response.html
 
 def get_active_dates(html_qg):
