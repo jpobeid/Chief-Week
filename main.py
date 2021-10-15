@@ -9,7 +9,7 @@ import lib.functions as funcs
 import lib.didactics as lecs
 import lib.dept_qg as qg
 
-def run_main():
+async def run_main():
     if not funcs.screen_assets():
         error_message = f'Requires {globals.FILENAME_SETTINGS} and {globals.FILENAME_SCHEDULE} in /{globals.PATH_ASSETS}'
         raise FileNotFoundError(error_message)
@@ -70,7 +70,7 @@ def run_main():
             time_seminar = settings.get('seminar_time')[:-2] + ' ' + settings.get('seminar_time')[-2:]
             date_seminar = next_week[i]
             url_seminar = settings.get('seminar_calendar').replace('mm-dd-yyyy', next_week[0].strftime('%m-%d-%Y'))
-            seminar_text = funcs.get_seminar_text(url_seminar, date_seminar, time_seminar)
+            seminar_text = await funcs.get_seminar_text(url_seminar, date_seminar, time_seminar)
             p = document.add_paragraph(f'8:00-9:00 - Cancer series seminar:\n{seminar_text}')
             seminar_link = settings.get('seminar_link')
             seminar_pass = settings.get('seminar_pass')
@@ -91,7 +91,7 @@ def run_main():
     document.add_heading('Groups', 1)
 
     # Request updated sheet from Qgenda
-    html = qg.get_html_qg(settings.get('qgenda'), globals.HTTP_HEADERS)
+    html = await qg.get_html_qg(settings.get('qgenda'), globals.HTTP_HEADERS)
 
     df_res = qg.make_df_qg(html, globals.COLOR_RESIDENT, True).T
     df_attg = qg.make_df_qg(html, globals.COLOR_RESIDENT, False).T
@@ -145,9 +145,3 @@ def run_main():
 
     #---Save document---
     document.save(globals.FILENAME_DOCX)
-
-    #---Manually close terminal---
-    input('Press any key to exit...')
-
-if __name__ == '__main__':
-    run_main()

@@ -1,7 +1,7 @@
 import os
 import datetime
 import numpy as np
-from requests_html import HTMLSession
+from requests_html import AsyncHTMLSession
 
 from . import global_vars as globals
 
@@ -26,10 +26,11 @@ def make_settings_dict():
     pre_settings_dict = list(map(lambda x: x.split(globals.SETTINGS_SEPARATOR), settings))
     return dict(pre_settings_dict)
 
-def get_seminar_text(url_seminar, date_seminar, time_seminar):
+async def get_seminar_text(url_seminar, date_seminar, time_seminar):
     print('Accessing medicine lectures page...')
-    with HTMLSession() as sesh:
-        response = sesh.get(url_seminar)
+    sesh = AsyncHTMLSession()
+    response = await sesh.get(url_seminar)
+    await sesh.close()
     print('Finished accessing page!')
     month_formatted = date_seminar.strftime('%b')
     day_formatted = date_seminar.strftime('%d')

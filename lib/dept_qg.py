@@ -1,18 +1,19 @@
 import datetime
 import numpy as np
 import pandas as pd
-from requests_html import HTMLSession
+from requests_html import AsyncHTMLSession
 
-def get_html_qg(url, headers):
+async def get_html_qg(url, headers):
     render_time = 4
     timeout_time = 30
-    with HTMLSession() as sesh:
-        print('Accessing Qgenda...')
-        response = sesh.get(url, headers=headers)
-        print('Rendering schedule...')
-        response.html.render(sleep=render_time, timeout=timeout_time)
-        print('Finished rendering!')
-        return response.html
+    sesh = AsyncHTMLSession()
+    print('Accessing Qgenda...')
+    response = await sesh.get(url, headers=headers)
+    print('Rendering schedule...')
+    await response.html.arender(sleep=render_time, timeout=timeout_time)
+    print('Finished rendering!')
+    await sesh.close()
+    return response.html
 
 def get_active_dates(html_qg):
     DAYS = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
