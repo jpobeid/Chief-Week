@@ -10,4 +10,4 @@ async def get_email():
     return await send_from_directory('', 'weekly_email.docx', as_attachment=True)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
