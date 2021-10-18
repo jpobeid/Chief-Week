@@ -2,7 +2,7 @@ reminder1-->This is our personal resident (anonymous) email, be sure to drop fee
 reminder2-->Please note that we agreed to not undergo clinic video visits in the resident room. This is to avoid a cacophony from multiple visits simultaneously and to reduce patients' exposure to the resident room, where we often (and should be at liberty to) discuss confidential matters among ourselves
 reminder3-->Chief of the month: Be sure to attend the monthly GME chief counsel meeting and sign the google doc for your department
 reminder4-->Doordash lunch: *** this week
-reminder5-->Send ALL p-card receipts to Jessica or Daisy
+reminder5-->Send ALL P-card & T-card receipts to Jessica or Daisy
 qgenda-->https://app.qgenda.com/Link/view?linkKey=6345cb96-d208-4f7a-9043-e4df8d7b0930
 host_link-->https://stanford.zoom.us/j/9511833324?pwd=Ni9FUTJlM1NYUDJPQUlEMFR5RnRBdz09
 host_id-->951 183 3324
