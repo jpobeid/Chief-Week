@@ -6,13 +6,14 @@ PATH_ASSETS = r'assets/'
 
 #--Settings---
 FILENAME_SETTINGS = 'settings.txt'
+KEY_SETTINGS = 'settingsBytes'
 SETTINGS_SEPARATOR = '-->'
-
-#---Schedule---
-SCHEDULE_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
 
 #---Didactics---
 FILENAME_SCHEDULE = 'schedule.csv'
+KEY_SCHEDULE = 'scheduleBytes'
+
+SCHEDULE_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
 
 #---Qgenda---
 HTTP_HEADERS = {
