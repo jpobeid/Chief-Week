@@ -6,7 +6,6 @@ PATH_ASSETS = r'assets/'
 
 #--Settings---
 FILENAME_SETTINGS = 'settings.txt'
-KEY_SETTINGS = 'settingsBytes'
 SETTINGS_SEPARATOR = '-->'
 
 #---Didactics---
