@@ -14,10 +14,18 @@ def screen_assets():
     else:
         return False
 
-def get_next_week():
+def get_nearest_sunday():
     today = datetime.date.today()
-    dt = 7 - today.weekday()
-    return today + np.array(list(map(lambda x: datetime.timedelta(int(x)), dt + np.arange(7))))
+    if today.weekday() == 6:
+        return today
+    else:
+        dt = np.sign(today.weekday() - 3) * abs(today.weekday() - 1)
+        return today + datetime.timedelta(int(dt))
+
+def get_next_week():
+    day = get_nearest_sunday()
+    dt = 7 - day.weekday()
+    return day + np.array(list(map(lambda x: datetime.timedelta(int(x)), dt + np.arange(7))))
 
 def make_settings_dict():
     with open(os.path.join(globals.PATH_ASSETS, globals.FILENAME_SETTINGS), 'r') as f:
