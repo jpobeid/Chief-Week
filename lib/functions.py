@@ -14,16 +14,17 @@ def screen_assets():
     else:
         return False
 
-def get_nearest_sunday():
-    today = datetime.date.today()
-    if today.weekday() == 6:
-        return today
+def get_nearest_sunday(date):
+    weekday = date.weekday()
+    if weekday == 6:
+        return date
+    elif weekday <= 2:
+        return date - datetime.timedelta(weekday + 1)
     else:
-        dt = np.sign(today.weekday() - 3) * abs(today.weekday() - 1)
-        return today + datetime.timedelta(int(dt))
+        return date + datetime.timedelta(6 - weekday)
 
 def get_next_week():
-    day = get_nearest_sunday()
+    day = get_nearest_sunday(datetime.date.today())
     dt = 7 - day.weekday()
     return day + np.array(list(map(lambda x: datetime.timedelta(int(x)), dt + np.arange(7))))
 
