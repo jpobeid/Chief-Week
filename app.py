@@ -5,8 +5,10 @@ from main import run_main
 from lib import global_vars as globals
 from lib import functions as funcs
 from quart import Quart, send_from_directory, request, Response
+from quart_cors import cors
 
 app = Quart(__name__)
+app = cors(app)
 
 route_suffix = globals.FILENAME_DOCX.split('.')[0]
 @app.route(f'/{route_suffix}', methods=['GET'])
