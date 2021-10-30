@@ -54,12 +54,12 @@ async def get_seminar_text(url_seminar, date_seminar, time_seminar):
 def add_lecture_runs(paragraph, lecture, new_line=True):
     if lecture['Event'] == 'Holiday':
         paragraph.add_run(lecture['Event'] + ' - ' + lecture['Title'])
-    elif lecture['Event'] == 'Study' or lecture['Event'] == 'M&M':
+    elif lecture['Event'] in ['Study', 'M&M', 'ACR', 'Interviews']:
         paragraph.add_run(lecture['Time'] + ' - ' + lecture['Title'])
     else:
         paragraph.add_run(lecture['Time'] + ' - ' + lecture['Title'] + ' - ' + lecture['Presenter'] + ' - [' + lecture['Media'] + ']')
     if new_line:
-        paragraph.add_run('\n')        
+        paragraph.add_run('\n')
 
 def clean_name(name):
     return name.split(' (')[0]

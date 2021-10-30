@@ -15,6 +15,7 @@ def fill_dates(df_i):
 
 def get_weekly_lectures():
     df = pd.read_csv(os.path.join(globals.PATH_ASSETS, globals.FILENAME_SCHEDULE))
+    df = df.dropna(axis=0, how='all')
     fill_dates(df)
     df['Date'] = pd.to_datetime(df['Date'])
     df = df.set_index('Date', drop=True)
